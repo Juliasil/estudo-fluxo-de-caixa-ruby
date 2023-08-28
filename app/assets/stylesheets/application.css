@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+  body{
+    margin-top: 20px;
+  }
+  .dvCaixas div{
+    display: inline-block;
+  }
