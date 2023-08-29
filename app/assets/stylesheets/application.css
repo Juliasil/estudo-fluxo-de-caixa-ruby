@@ -19,4 +19,38 @@
   }
   .dvCaixas div{
     display: inline-block;
+    width: 30%;
+    background-color: #cfcfcf ;
+    padding: 20px;
+    height: 110px ;
+  }
+
+  .dvCaixas div:nth-child(3){
+    background-color: darkred;
+  }
+
+  .dvBusca{
+    margin-top: 20px;
+  }
+
+  .dvBusca div{
+    display: inline-block;
+  }
+
+  .dvBusca div:nth-child(1){
+    width: 80%;
+  }
+
+  .dvBusca div:nth-child(1) form input{
+    display: inline-block;
+    width: 75%;
+  }
+
+  .dvBusca div:nth-child(1) form button{
+    display: inline-block;
+    width: 20%;
+  }
+
+  .dvBusca div:nth-child(2){
+    width: 15%;
   }
