@@ -38,19 +38,14 @@
         </tr>
       </thead>
       <tbody>
+        <%= @extrato.each do |item| %>
         <tr>
-          <td>Exemplo 1</td>
-          <td>R$ 100,00</td>
-          <td>Ativo</td>
+          <td><%= item.tipo %></td>
+          <td>R$ <%= item.valor %></td>
+          <td><%= item.status == 1 ? "Debito" : "Credito" %></td>
           <td></td> <!-- Célula em branco -->
         </tr>
-        <tr>
-          <td>Exemplo 2</td>
-          <td>R$ 50,00</td>
-          <td>Inativo</td>
-          <td></td> <!-- Célula em branco -->
-        </tr>
-        <!-- Adicione mais linhas conforme necessário -->
+        <% end %>
       </tbody>
     </table>
 </div>
