@@ -42,9 +42,14 @@
             <tr>
               <td><%= item.tipo %></td>
             <td><%= item.status == Caixa::DEBITO ? "- " : "" %>R$ <%= number_with_precision(item.valor, precision: 2, separator: ',', delimiter: '.') %></td>
-
-              <td style="background-color: #c82d2d"><%= item.status == Caixa::DEBITO ? "Debito" : "Credito" %></td>
-              <td></td> <!-- Célula em branco -->
+            <% if item.status == Caixa::DEBITO %>
+              <td style="background-color: #B22222">Debito</td>
+            <% else %>
+              <td style="background-color: #00BFFF">Crédito</td>
+            <% end %>
+          <td>
+            <a href="/excluir/<%= item.id %>" onclick="return confirm('confirma?')">Excluir</a>
+          </td> 
             </tr>
           <% end %>
 

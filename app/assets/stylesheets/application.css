@@ -30,10 +30,10 @@
   }
 
   .dvCaixas div:nth-child(3){
-    background-color: #c82d2d;
+    background-color: #B22222;
   }
 
-  .dvBusca{
+  .dvBusca, .dvTabela{
     margin-top: 20px;
   }
 
