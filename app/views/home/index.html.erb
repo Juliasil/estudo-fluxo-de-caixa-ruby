@@ -1,24 +1,24 @@
 <h1>Fluxo de caixa</h1>
 
 <div class="dvCaixas">
-  <div><br>
-    Valor Total
-    R$ 200
+  <div>
+    <b>Valor Total</b><br>
+    R$ <%= number_with_precision(@valor_total, precision: 2, separator: ',', delimiter: '.') %>
   </div>
-  <div><br>
-    Receitas
-    R$ 200
+  <div>
+    <b>Receitas</b><br>
+    R$ <%= number_with_precision(@receita, precision: 2, separator: ',', delimiter: '.') %>
   </div>
-  <div><br>
-    Despesas
-    R$ 200
+  <div>
+    <b>Despesas</b><br>
+  - R$ <%= number_with_precision(@despesa, precision: 2, separator: ',', delimiter: '.') %>
   </div>
 </div>
 
 <div class="dvBusca">
   <div>
     <form action="/" method="get">
-      <input type="text" class="form-controll" placeholder="Digite algo" name="tipo">
+      <input type="text" class="form-controll" placeholder="Digite algo" name="tipo" value="<%= params[:tipo]%>">
       <button type="submit" class="btn btn-primary">Buscar</button>
     </form>
   </div>
@@ -38,14 +38,16 @@
         </tr>
       </thead>
       <tbody>
-        <%= @extrato.each do |item| %>
-        <tr>
-          <td><%= item.tipo %></td>
-          <td>R$ <%= item.valor %></td>
-          <td><%= item.status == 1 ? "Debito" : "Credito" %></td>
-          <td></td> <!-- Célula em branco -->
-        </tr>
-        <% end %>
+          <% @extrato.each do |item| %>
+            <tr>
+              <td><%= item.tipo %></td>
+            <td><%= item.status == Caixa::DEBITO ? "- " : "" %>R$ <%= number_with_precision(item.valor, precision: 2, separator: ',', delimiter: '.') %></td>
+
+              <td style="background-color: #c82d2d"><%= item.status == Caixa::DEBITO ? "Debito" : "Credito" %></td>
+              <td></td> <!-- Célula em branco -->
+            </tr>
+          <% end %>
+
       </tbody>
     </table>
 </div>

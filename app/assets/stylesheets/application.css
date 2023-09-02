@@ -30,7 +30,7 @@
   }
 
   .dvCaixas div:nth-child(3){
-    background-color: darkgoldenrod;
+    background-color: #c82d2d;
   }
 
   .dvBusca{
@@ -74,6 +74,6 @@
   }
 
   .dvTabela table thead{
-    background-color: #f5f8;
+    background-color: #cfcfcf;
   }
 
