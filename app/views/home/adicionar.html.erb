@@ -1,1 +1,24 @@
-views
+<h1>Fluxo de caixa</h1>
+
+<div class="formAdicionar">
+  <form action="/adicionar" method="post">
+    <%= csrf_meta_tags %> <!-- Isso está correto -->
+    <div class="mb-3">
+      <label for="tipo" class="form-label">Tipo</label>
+      <input type="text" class="form-control" id="tipo" name="tipo" placeholder="Digite o tipo" required>
+    </div>
+    <div class="mb-3">
+      <label for="valor" class="form-label">Valor</label>
+      <input type="number" class="form-control" id="valor" name="valor" placeholder="Digite o valor" step="0.01" required>
+    </div>
+    <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select class="form-select" id="status" name="status" required>
+        <option value="<%= Caixa::CREDITO %>">Entrada</option>
+        <option value="<%= Caixa::DEBITO %>">Saída</option>
+      </select>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
+</div>
