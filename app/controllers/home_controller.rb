@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:cadastrar]
   def index
     @extrato = Caixa.all
     @extrato = @extrato.where("tipo like ?", "%#{params[:tipo]}%") if params[:tipo].present?
@@ -15,5 +16,18 @@ class HomeController < ApplicationController
       end
     end
     @valor_total = @receita - @despesa
+  end
+
+  def excluir
+    Caixa.delete(params[:id])
+    redirect_to "/"
+  end
+
+  def adicionar
+  end
+
+  def cadastrar
+    Caixa.create(tipo: params[:tipo], valor: params[:valor], status: params[:status])
+    redirect_to "/"
   end
 end

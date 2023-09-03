@@ -47,8 +47,9 @@
             <% else %>
               <td style="background-color: #00BFFF">Crédito</td>
             <% end %>
-          <td>
-            <a href="/excluir/<%= item.id %>" onclick="return confirm('confirma?')">Excluir</a>
+          <td style="width: 20px">
+          <a href="/excluir/<%= item.id %>" class="btn btn-danger" onclick="return confirm('Confirma?')">Excluir</a>
+
           </td> 
             </tr>
           <% end %>
